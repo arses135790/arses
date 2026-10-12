@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>داشبورد | آرسس</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/assets/app.css"></head>
+<body><div class="wrap">
+<header class="top"><div class="brand"><span class="logo">آ</span><span>آرسس</span></div>
+<div><button class="btn" id="btnSet">تنظیمات کانفیگ</button> <button class="btn" id="btnPass">رمز عبور</button> <button class="btn" id="btnOut">خروج</button></div></header>
+<div id="banner"></div>
+<section class="grid" id="stats"></section>
+<section class="card chartcard"><canvas id="chart" height="150"></canvas>
+<div class="legend"><span><i class="dot d1"></i>دانلود</span><span><i class="dot d2"></i>آپلود</span><span>۵ دقیقه‌ی اخیر</span></div></section>
+<div class="bar"><h2>لینک‌ها</h2><button class="btn pri" id="btnNew">+ لینک جدید</button></div>
+<section id="links"></section>
+</div>
+
+<dialog id="dEdit"><form method="dialog" id="fEdit"><h3 id="eTitle"></h3>
+<label for="eName">نام</label><input id="eName" type="text" maxlength="60" required>
+<label for="eQuota">حجم (گیگابایت، ۰ = نامحدود)</label><input id="eQuota" type="number" min="0" step="0.1" value="0">
+<label for="eDays" id="eDaysL">اعتبار (روز، ۰ = بدون انقضا)</label><input id="eDays" type="number" min="0" step="1" value="0">
+<div class="err" id="eErr"></div>
+<div class="row"><button class="btn" value="cancel" type="button" data-close>انصراف</button><button class="btn pri" type="submit">ذخیره</button></div></form></dialog>
+
+<dialog id="dQr"><h3 id="qTitle"></h3>
+<div class="tabs"><button class="btn sm on" data-p="vless">VLESS</button><button class="btn sm" data-p="trojan">Trojan</button></div>
+<div class="qrbox"><img id="qImg" alt="QR"></div><div class="uri" id="qUri"></div>
+<div class="row"><button class="btn" id="qCopy">کپی لینک</button><button class="btn" data-close>بستن</button></div></dialog>
+
+<dialog id="dSet"><form id="fSet"><h3>تنظیمات ساخت کانفیگ</h3>
+<label for="sAddr">آی‌پی امارات (داخل همه‌ی کانفیگ‌ها قرار می‌گیرد)</label><input id="sAddr" type="text" dir="ltr" placeholder="مثلا 94.200.x.x" maxlength="253">
+<label for="sLabel">برچسب لوکیشن (اول نام کانفیگ)</label><input id="sLabel" type="text" maxlength="30">
+<label for="sUp">پروکسی خروجی امارات (SOCKS5) — ترافیک از این آی‌پی خارج می‌شود</label><input id="sUp" type="text" dir="ltr" placeholder="socks5://user:pass@ip:port (خالی = بدون تغییر)" maxlength="300">
+<div class="row"><button class="btn sm" type="button" id="sTest">تست کشور خروجی</button><button class="btn sm danger" type="button" id="sClear">حذف پروکسی</button></div>
+<div class="sub" id="sTestOut" dir="ltr"></div>
+<div class="sub">همراه اول: در کلاینت Fragment را روی طول 10-30 و فاصله 2-5 بگذارید و Fingerprint را chrome.</div>
+<div class="sub" id="sHost" dir="ltr"></div>
+<div class="err" id="sErr"></div>
+<div class="row"><button class="btn" type="button" data-close>انصراف</button><button class="btn pri" type="submit">ذخیره</button></div></form></dialog>
+
+<dialog id="dPass"><form id="fPass"><h3>تغییر رمز عبور</h3>
+<label for="pCur">رمز فعلی</label><input id="pCur" type="password" autocomplete="current-password" required>
+<label for="pNew">رمز جدید (حداقل ۸ نویسه)</label><input id="pNew" type="password" autocomplete="new-password" minlength="8" required>
+<div class="err" id="pErr"></div>
+<div class="row"><button class="btn" type="button" data-close>انصراف</button><button class="btn pri" type="submit">تغییر</button></div></form></dialog>
+
+<div class="toast" id="toast"></div>
+<script src="/assets/dashboard.js"></script></body></html>
